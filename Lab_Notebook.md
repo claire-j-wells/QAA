@@ -203,13 +203,46 @@ zcat /projects/bgmp/shared/2017_sequencing/demultiplexed/11_2H_both_S9_L008_R2_0
 ```
 
 
-
-
-
-
-
-
 We used grep for to check for these sequences and we wanted to get a rough estimate for how many of the adaptor there was so we used -c. We confirmed the adaptor sequences by finding the Illumina command on the cutadapt manual and then confirmed this by checking on the assignment page. 
+
+Sanity check: We would expect the adaptor sequences to be on the end because Illumina reads from 3' to 5'.
+
+
+***cutadapt did NOT change the length of the file!!!***
+
+August 25th, 2024: can't stop won't stop
+-----
+
+Doing some preliminary data analysis in order to figure out if trimmomatic is meant to be used on the original files or on the cutadapt outputs. 
+
+
+```
+zcat trimmed.R1_11.fastq.gz | sed -n '2~4p' | awk '{print length($0)}' | sort -nr | uniq -c 
+```
+
+
+Used the following command on `cutadapt` output files. Removed the `ILLUMINACLIP:TruSeq3-PE.fa:2:30:10` portion of the command because we do NOT want to remove adaptors since cutadapt already did that for us!!!! 
+
+```
+usr/bin/time -v trimmomatic PE /home/cwell/bgmp/bioinfo/Bi623/QAA/cut_adapt_out/trimmed.R1_11.fastq.gz /home/cwell/bgmp/bioinfo/Bi623/QAA/cut_adapt_out/trimmed.R2_11.fastq.gz output_forward_paired_R1_11.fq.gz output_forward_unpaired_R1_11.fq.gz output_reverse_paired_R2_11.fq.gz output_reverse_unpaired_R2_11.fq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:5:15 MINLEN:35
+````
+
+```
+/usr/bin/time -v trimmomatic PE /home/cwell/bgmp/bioinfo/Bi623/QAA/cut_adapt_out/trimmed.R1_Control.fastq.gz /home/cwell/bgmp/bioinfo/Bi623/QAA/cut_adapt_out/trimmed.R2_Control.fastq.gz output_forward_paired_R1_Control.fq.gz output_forward_unpaired_R1_Control.fq.gz output_reverse_paired_R2_Control.fq.gz output_reverse_unpaired_R2_Control.fq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:5:15 MINLEN:35
+```
+
+Time output for Trimmomatic Run on Control. Exit Status 0. 
+
+```
+User time (seconds): 244.15
+        System time (seconds): 4.32
+        Percent of CPU this job got: 212%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 1:56.93
+```
+
+
+
+
 
 
 
