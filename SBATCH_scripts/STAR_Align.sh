@@ -4,8 +4,8 @@
 #SBATCH --job-name=STAR_Align 
 #SBATCH --account=bgmp
 #SBATCH --partition=bgmp
-#SBATCH -c 8
-#SBATCH --mem=100G
+#SBATCH -c 1
+#SBATCH --mem=50G
 #SBATCH --output=slurm_outputs/Star_Align/slurm-Star_Align_11_out-%j.out
 #SBATCH --error=slurm_outputs/Star_Align/slurm-Star_Align_11_out-%j.err
 #SBATCH --mail-user=cwell@uoregon.edu

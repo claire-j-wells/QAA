@@ -4,8 +4,8 @@
 #SBATCH --job-name=2_STAR
 #SBATCH --account=bgmp
 #SBATCH --partition=bgmp
-#SBATCH -c 8
-#SBATCH --mem=100G
+#SBATCH -c 1
+#SBATCH --mem=50G
 #SBATCH --output=slurm_outputs/Star_Database/slurm-2Star_Database_out-%j.out
 #SBATCH --error=slurm_outputs/Star_Database/slurm-2Star_Database_out-%j.err
 #SBATCH --mail-user=cwell@uoregon.edu

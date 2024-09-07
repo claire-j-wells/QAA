@@ -4,8 +4,8 @@
 #SBATCH --job-name=HTSEQ 
 #SBATCH --account=bgmp
 #SBATCH --partition=bgmp
-#SBATCH -c 8
-#SBATCH --mem=100GB
+#SBATCH -c 1
+#SBATCH --mem=50GB
 #SBATCH --output=slurm_outputs/HTSEQ/slurm-HTSEQ-%j.out
 #SBATCH --error=slurm_outputs/HTSEQ/slurm-HTSEQ_out-%j.err
 #SBATCH --mail-user=cwell@uoregon.edu

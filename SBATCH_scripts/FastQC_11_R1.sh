@@ -3,9 +3,8 @@
 #SBATCH --job-name=11_R1
 #SBATCH --account=bgmp
 #SBATCH --partition=bgmp
-#SBATCH --cpus-per-task=4
-#SBATCH -c 8
-#SBATCH --mem=100G
+#SBATCH -c 1
+#SBATCH --mem=50G
 #SBATCH --nodes=1
 #SBATCH --output=slurm-R3-%j.out
 #SBATCH --error=slurm-R3-%j.err
