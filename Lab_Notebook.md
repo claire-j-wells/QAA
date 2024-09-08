@@ -469,8 +469,17 @@ Job ID: 15916701
 
 done like this: > HTSEQ_out/Control_Strand_Yes_Counts.genecount
 
+```
+Command being timed: "htseq-count --stranded=reverse /home/cwell/bgmp/bioinfo/Bi623/QAA/Sorted_Sample11_Align_Out.sam /home/cwell/bgmp/bioinfo/Bi623/QAA/Mus_musculus.GRCm39.112.gtf"
+	User time (seconds): 1708.67
+	System time (seconds): 5.34
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 28:37.53
 
-ADD STATS LATER --> all exit status of 0
+```
+
+
+all exit status of 0
 
 
 #### Number of Reads Mapped to a Feature
@@ -542,6 +551,8 @@ Looking at original R1 and R2 files and we need to know which one is the templat
 
 
 For storing and submission purposes, all sbatch scripts are in their own folder. As a result, some of these scripts may or may not work since I may have used relative paths when referencing files. I believe that I did add absolute paths for *most* of them but I'm not totally sure. Just be warned...
+
+All python scripts are stored in `Python_Scripts`.
 
 
 
